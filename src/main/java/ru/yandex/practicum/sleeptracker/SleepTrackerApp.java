@@ -15,11 +15,13 @@ public class SleepTrackerApp {
                     new SleepAnalyzerCount(),
                     new MaxDurationSession(),
                     new MinDurationSession(),
-                    new AvgDurationSession()
+                    new AvgDurationSession(),
+                    new CountSleeplesNight(),
+                    new CharacterUser()
             );
 
     public static void main(String[] args) throws IOException {
-        SleepplessNight sleepplessNight = new SleepplessNight();
+        
         SleepLogReader sleepLogReader = new SleepLogReader();
         List<SleepingSession> sessions = sleepLogReader.processFilePaths(
                 "C:\\java-sleep-tracker\\src\\main\\resources\\sleep_log.txt"
@@ -27,9 +29,9 @@ public class SleepTrackerApp {
         for (int i = 0; i <analyzers.size() ; i++) {
             System.out.println(analyzers.get(i).apply(sessions).getDescription()+analyzers.get(i).apply(sessions).getValue());
         }
-        for (int i = 0; i < sessions.size(); i++) {
-            System.out.println("Сессия ночная? "+sessions.get(i).getStart()+" / "+sessions.get(i).getFinish() +"---"+sleepplessNight.isNightSleep(sessions.get(i)));
-        }
+//        for (int i = 0; i < sessions.size(); i++) {
+//            System.out.println("Сессия ночная? "+sessions.get(i).getStart()+" / "+sessions.get(i).getFinish() +"---"+sleepplessNight.isNightSleep(sessions.get(i)));
+//        }
 
 
         // Временный цикл для теста ВЫВОДА
