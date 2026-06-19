@@ -8,10 +8,10 @@ public class AvgDurationSession implements Function<List<SleepingSession>, Sleep
     @Override
     public SleepAnalysisResult apply(List<SleepingSession> sleepingSessions) {
         double duration = sleepingSessions.stream()
-                .mapToLong(sleepingSession ->Duration.between(sleepingSession.getStart(), sleepingSession.getFinish()).toMinutes())
+                .mapToLong(sleepingSession -> Duration.between(sleepingSession.getStart(), sleepingSession.getFinish()).toMinutes())
                 .average()
                 .orElse(0);
-        return new SleepAnalysisResult("Средняя продолжительность сессии (в минутах): ",duration);
+        return new SleepAnalysisResult("Средняя продолжительность сессии (в минутах): ", duration);
 
     }
 }

@@ -1,9 +1,11 @@
 package ru.yandex.practicum.sleeptracker;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.List;
+
 public class CountSleeplesNightTest {
     List<SleepingSession> sessions;
 
@@ -17,33 +19,36 @@ public class CountSleeplesNightTest {
         );
 
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
-        Assertions.assertEquals(0L,analysisResult.getValue());
+        Assertions.assertEquals(0L, analysisResult.getValue());
     }
+
     @Test
     public void shouldBeReturnOneNight() throws IOException {
         SleepLogReader sleepLogReader = new SleepLogReader();
         CountSleeplesNight countSleeplesNight = new CountSleeplesNight();
         sessions = sleepLogReader.processFilePaths("C:\\java-sleep-tracker\\src\\main\\resources\\OneSleeplesNight_log.txt");
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
-        Assertions.assertEquals(1L,analysisResult.getValue());
+        Assertions.assertEquals(1L, analysisResult.getValue());
 
     }
+
     @Test
     public void shouldBeReturnThreeNight() throws IOException {
         SleepLogReader sleepLogReader = new SleepLogReader();
         CountSleeplesNight countSleeplesNight = new CountSleeplesNight();
         sessions = sleepLogReader.processFilePaths("C:\\java-sleep-tracker\\src\\main\\resources\\OnlyDaySession_log.txt");
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
-        Assertions.assertEquals(3L,analysisResult.getValue());
+        Assertions.assertEquals(3L, analysisResult.getValue());
 
     }
+
     @Test
     public void shouldBeReturnZeroNightNextMonth() throws IOException {
         SleepLogReader sleepLogReader = new SleepLogReader();
         CountSleeplesNight countSleeplesNight = new CountSleeplesNight();
         sessions = sleepLogReader.processFilePaths("C:\\java-sleep-tracker\\src\\main\\resources\\SwitchMonth_log.txt");
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
-        Assertions.assertEquals(0L,analysisResult.getValue());
+        Assertions.assertEquals(0L, analysisResult.getValue());
 
     }
 }

@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SleepLogReader {
@@ -17,12 +16,13 @@ public class SleepLogReader {
         return sessionList;
 
     }
-    private static SleepingSession parseSession(String line){
+
+    private static SleepingSession parseSession(String line) {
         String[] parts = line.split(";");
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yy HH:mm");
-        LocalDateTime start = LocalDateTime.parse(parts[0],dateTimeFormatter);
-        LocalDateTime finish = LocalDateTime.parse(parts[1],dateTimeFormatter);
+        LocalDateTime start = LocalDateTime.parse(parts[0], dateTimeFormatter);
+        LocalDateTime finish = LocalDateTime.parse(parts[1], dateTimeFormatter);
         SleepQuality quality = SleepQuality.valueOf(parts[2]);
-        return new SleepingSession(start,finish,quality);
+        return new SleepingSession(start, finish, quality);
     }
 }

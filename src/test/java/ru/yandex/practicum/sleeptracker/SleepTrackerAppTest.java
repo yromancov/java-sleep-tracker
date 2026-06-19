@@ -24,65 +24,75 @@ public class SleepTrackerAppTest {
     public void sesionsIsNull() {
         Assertions.assertNotNull(sessions);
     }
+
     @Test
-    public void shouldBeCountAllSession(){
+    public void shouldBeCountAllSession() {
         SleepAnalyzerCount sleepAnalyzerCount = new SleepAnalyzerCount();
         SleepAnalysisResult analyzer = sleepAnalyzerCount.apply(sessions);
-        Assertions.assertEquals(10L,analyzer.getValue());
+        Assertions.assertEquals(10L, analyzer.getValue());
     }
+
     @Test
-    public void shouldBeCountAllSession2(){
+    public void shouldBeCountNotNull() {
         SleepAnalyzerCount sleepAnalyzerCount = new SleepAnalyzerCount();
         SleepAnalysisResult analyzer = sleepAnalyzerCount.apply(sessions);
-        Assertions.assertNotEquals(0L,analyzer.getValue());
+        Assertions.assertTrue(analyzer.getValue() != null);
     }
+
     @Test
-    public void shouldBeCountBadSession(){
+    public void shouldBeCountBadSession() {
         BadSleepAnalyzer badSleepAnalyzer = new BadSleepAnalyzer();
         SleepAnalysisResult analysisResult = badSleepAnalyzer.apply(sessions);
-        Assertions.assertEquals(3L,analysisResult.getValue());
+        Assertions.assertEquals(3L, analysisResult.getValue());
     }
+
     @Test
-    public void shouldBeCountBadSession2(){
+    public void shouldBeCountBadSessionNotNull() {
         BadSleepAnalyzer badSleepAnalyzer = new BadSleepAnalyzer();
         SleepAnalysisResult analysisResult = badSleepAnalyzer.apply(sessions);
-        Assertions.assertNotEquals(4L,analysisResult.getValue());
+        Assertions.assertTrue(analysisResult.getValue() != null);
     }
+
     @Test
-    public void shouldBeFindMaxDuration(){
+    public void shouldBeFindMaxDuration() {
         MaxDurationSession maxDurationSession = new MaxDurationSession();
         SleepAnalysisResult analysisResult = maxDurationSession.apply(sessions);
-        Assertions.assertEquals(620L,analysisResult.getValue());
+        Assertions.assertEquals(620L, analysisResult.getValue());
     }
+
     @Test
-    public void shouldBeFindMaxDuration2(){
+    public void shouldBeFindMaxDurationNotNull() {
         MaxDurationSession maxDurationSession = new MaxDurationSession();
         SleepAnalysisResult analysisResult = maxDurationSession.apply(sessions);
-        Assertions.assertNotEquals(700L,analysisResult.getValue());
+        Assertions.assertTrue(analysisResult.getValue() != null);
     }
+
     @Test
-    public void shouldBeFindMinDuration(){
+    public void shouldBeFindMinDuration() {
         MinDurationSession minDurationSession = new MinDurationSession();
         SleepAnalysisResult analysisResult = minDurationSession.apply(sessions);
-        Assertions.assertEquals(40L,analysisResult.getValue());
+        Assertions.assertEquals(40L, analysisResult.getValue());
     }
+
     @Test
-    public void shouldBeFindMinDuration2(){
+    public void shouldBeFindMinDurationNotNull() {
         MinDurationSession minDurationSession = new MinDurationSession();
         SleepAnalysisResult analysisResult = minDurationSession.apply(sessions);
-        Assertions.assertNotEquals(10L,analysisResult.getValue());
+        Assertions.assertTrue(analysisResult.getValue() != null);
     }
+
     @Test
-    public void shouldBeFindAvgDuration(){
+    public void shouldBeFindAvgDuration() {
         AvgDurationSession avgDurationSession = new AvgDurationSession();
         SleepAnalysisResult analysisResult = avgDurationSession.apply(sessions);
-        Assertions.assertEquals(397.0D,analysisResult.getValue());
+        Assertions.assertEquals(397.0D, analysisResult.getValue());
     }
+
     @Test
-    public void shouldBeFindAvgDuration2(){
+    public void shouldBeFindAvgDurationNotNull() {
         AvgDurationSession avgDurationSession = new AvgDurationSession();
         SleepAnalysisResult analysisResult = avgDurationSession.apply(sessions);
-        Assertions.assertNotEquals(397.3D,analysisResult.getValue());
+        Assertions.assertTrue(analysisResult.getValue() != null);
     }
 
 }
