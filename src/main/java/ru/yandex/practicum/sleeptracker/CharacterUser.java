@@ -31,6 +31,6 @@ public class CharacterUser implements Function<List<SleepingSession>,SleepAnalys
                 .max(Map.Entry.comparingByValue())
                 .map(Map.Entry::getKey)
                 .orElse(Character.Голубь);
-        return new SleepAnalysisResult("Ваш хронотип ", result);
+        return new SleepAnalysisResult("Ваш хронотип: ", result);
     }
 }
