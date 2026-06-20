@@ -16,7 +16,7 @@ public class SleepTrackerAppTest {
         SleepLogReader sleepLogReader = new SleepLogReader();
 
         sessions = sleepLogReader.processFilePaths(
-                "C:\\java-sleep-tracker\\src\\main\\resources\\test_sleep_log.txt"
+                "src/main/resources/test_sleep_log.txt"
         );
     }
 

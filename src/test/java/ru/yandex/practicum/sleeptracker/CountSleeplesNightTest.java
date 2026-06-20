@@ -15,7 +15,7 @@ public class CountSleeplesNightTest {
         SleepLogReader sleepLogReader = new SleepLogReader();
         CountSleeplesNight countSleeplesNight = new CountSleeplesNight();
         sessions = sleepLogReader.processFilePaths(
-                "C:\\java-sleep-tracker\\src\\main\\resources\\ZeroSleeplesNight_log.txt"
+                "src/main/resources/ZeroSleeplesNight_log.txt"
         );
 
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
@@ -26,7 +26,7 @@ public class CountSleeplesNightTest {
     public void shouldBeReturnOneNight() throws IOException {
         SleepLogReader sleepLogReader = new SleepLogReader();
         CountSleeplesNight countSleeplesNight = new CountSleeplesNight();
-        sessions = sleepLogReader.processFilePaths("C:\\java-sleep-tracker\\src\\main\\resources\\OneSleeplesNight_log.txt");
+        sessions = sleepLogReader.processFilePaths("src/main/resources/OneSleeplesNight_log.txt");
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
         Assertions.assertEquals(1L, analysisResult.getValue());
 
@@ -36,7 +36,7 @@ public class CountSleeplesNightTest {
     public void shouldBeReturnThreeNight() throws IOException {
         SleepLogReader sleepLogReader = new SleepLogReader();
         CountSleeplesNight countSleeplesNight = new CountSleeplesNight();
-        sessions = sleepLogReader.processFilePaths("C:\\java-sleep-tracker\\src\\main\\resources\\OnlyDaySession_log.txt");
+        sessions = sleepLogReader.processFilePaths("src/main/resources/OnlyDaySession_log.txt");
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
         Assertions.assertEquals(3L, analysisResult.getValue());
 
@@ -46,7 +46,7 @@ public class CountSleeplesNightTest {
     public void shouldBeReturnZeroNightNextMonth() throws IOException {
         SleepLogReader sleepLogReader = new SleepLogReader();
         CountSleeplesNight countSleeplesNight = new CountSleeplesNight();
-        sessions = sleepLogReader.processFilePaths("C:\\java-sleep-tracker\\src\\main\\resources\\SwitchMonth_log.txt");
+        sessions = sleepLogReader.processFilePaths("src/main/resources/SwitchMonth_log.txt");
         SleepAnalysisResult analysisResult = countSleeplesNight.apply(sessions);
         Assertions.assertEquals(0L, analysisResult.getValue());
 
