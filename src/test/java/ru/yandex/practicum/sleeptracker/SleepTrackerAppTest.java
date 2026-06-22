@@ -3,6 +3,11 @@ package ru.yandex.practicum.sleeptracker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.sleeptracker.AvgDurationSession.AvgDurationSession;
+import ru.yandex.practicum.sleeptracker.BadSleepAnalyzerSession.BadSleepAnalyzer;
+import ru.yandex.practicum.sleeptracker.MaxDurationSession.MaxDurationSession;
+import ru.yandex.practicum.sleeptracker.MinDurationSession.MinDurationSession;
+import ru.yandex.practicum.sleeptracker.SleepAnalyzerCountSession.SleepAnalyzerCount;
 
 import java.io.IOException;
 import java.util.List;

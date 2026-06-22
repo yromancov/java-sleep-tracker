@@ -2,6 +2,7 @@ package ru.yandex.practicum.sleeptracker;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import ru.yandex.practicum.sleeptracker.CountSleeplesNightSession.CountSleeplesNight;
 
 import java.io.IOException;
 import java.util.List;
